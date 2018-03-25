@@ -40,30 +40,24 @@ public class TriangleProblem {
     }
 
     public boolean isTriangle(){
+        if (!this.Available()){
+            return false;
+        }
         List<Integer> li = new ArrayList<Integer>();
         li.add(this.a);
         li.add(this.b);
         li.add(this.c);
         Collections.sort(li);
-        int len = li.size();
-        int b=0;
-        int c=0;
-        int sum=0;
-        int sub=0;
-        for (int i=0;i<li.size();i++){
-            if (i == 0){
-                c = li.get(0);
-                continue;
-            }
-            if (i == 1){
-                b = li.get(1);
-            }
-            sum += li.get(i);
-        }
-        if (sum <= c){
+        int a,b,c,sum,sub;
+        a = li.get(0);
+        b = li.get(1);
+        c = li.get(2);
+        sum = a+b;
+        sub = c-a;
+        if (sum<=c){
             return false;
         }
-        if (sub >= b){
+        if (sub>=b){
             return false;
         }
         return true;
