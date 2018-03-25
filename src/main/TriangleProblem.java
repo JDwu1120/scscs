@@ -1,0 +1,80 @@
+package main;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+/**
+ * Created by wujindong on 2018/3/22.
+ */
+public class TriangleProblem {
+    private Integer a,b,c;
+    public TriangleProblem(int a,int b,int c) {
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
+
+    public int getA() {
+        return a;
+    }
+
+    public void setA(int a) {
+        this.a = a;
+    }
+
+    public int getB() {
+        return b;
+    }
+
+    public void setB(int b) {
+        this.b = b;
+    }
+
+    public int getC() {
+        return c;
+    }
+
+    public void setC(int c) {
+        this.c = c;
+    }
+
+    public boolean isTriangle(){
+        List<Integer> li = new ArrayList<Integer>();
+        li.add(this.a);
+        li.add(this.b);
+        li.add(this.c);
+        Collections.sort(li);
+        int len = li.size();
+        int b=0;
+        int c=0;
+        int sum=0;
+        int sub=0;
+        for (int i=0;i<li.size();i++){
+            if (i == 0){
+                c = li.get(0);
+                continue;
+            }
+            if (i == 1){
+                b = li.get(1);
+            }
+            sum += li.get(i);
+        }
+        if (sum <= c){
+            return false;
+        }
+        if (sub >= b){
+            return false;
+        }
+        return true;
+    }
+
+    public boolean Available(){
+        if(this.a<=0||this.b<=0||this.c<=0){
+            return false;
+        }
+        return true;
+    }
+}
+
+
